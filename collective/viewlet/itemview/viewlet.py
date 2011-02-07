@@ -4,9 +4,10 @@ from zope import component
 import logging
 logger = logging.getLogger('collective.viewlet.itemview')
 
-class Viewlet(common.ViewletBase):
+class ViewletBelow(common.ViewletBase):
+
     def index(self):
-        target = self.target_up()
+        target = self.target()
         try:
             view = component.getMultiAdapter((target, self.request),
                                              name="itemview_viewlet")
@@ -18,13 +19,11 @@ class Viewlet(common.ViewletBase):
                 logger.error()
         return ''
 
-    def target_up(self):
-        target_path= '/test'
-        target = self.target(target_path)
-        if not target:
-            return None
+    def target_path(self):
+        return "/test-below"
 
-    def target(self, target_path):
+    def target(self):
+        target_path = self.target_path()
         if not target_path:
             return None
 
@@ -41,3 +40,8 @@ class Viewlet(common.ViewletBase):
             #restrictedTraverse accept only strings
             target_path = str(target_path)
         return portal.restrictedTraverse(target_path, default=None)
+
+class ViewletAbove(ViewletBelow):
+
+    def target_path(self):
+        return "/test-above"

@@ -18,12 +18,12 @@
     name="collective.viewlet.itemview.above"
     manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
     permission="zope2.View"
-    class=".viewlet.Viewlet"
+    class=".viewlet.ViewletAbove"
     />
   <browser:viewlet
     name="collective.viewlet.itemview.below"
     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
     permission="zope2.View"
-    class=".viewlet.Viewlet"
+    class=".viewlet.ViewletBelow"
     />
 </configure>
