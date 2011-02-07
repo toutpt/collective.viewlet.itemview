@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object>
+  <order manager="plone.belowcontentbody" skinname="Plone Default">
+    <viewlet name="collective.viewlet.itemview.above" />
+    <viewlet name="collective.viewlet.itemview.below" />
+  </order>
+</object>
